@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
     },
     buttonContainer: {
-      marginTop: 30,
+      marginTop: 10,
       padding: 20,
       width: 100,
     },
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
       margin: 100,
     },
     responseWindowContainer: {
-      marginTop: 30,
+      marginTop: 10,
       padding: 100,
     },
   });

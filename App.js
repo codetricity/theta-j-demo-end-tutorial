@@ -73,6 +73,12 @@ export default function App() {
           ></Button>
         </View>           
       </View>
+      {/* start of second row of buttons */}
+      <View style={styles.buttonRow}>
+        <View style={styles.buttonContainer}>
+      </View>
+      </View>
+      {/* end of second row of buttons */}
       <View style={styles.responseWindowContainer}>
         <Text>{responseWindow}</Text>
       </View>
