@@ -25,5 +25,9 @@ const styles = StyleSheet.create({
       marginTop: 10,
       padding: 100,
     },
+    thetaImage: {
+      width:400,
+      height: 200
+    }
   });
   

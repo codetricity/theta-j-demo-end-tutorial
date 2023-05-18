@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Text, View, Button, ScrollView } from "react-native";
+import { Text, View, Button, ScrollView, Image } from "react-native";
 import { infoButtonControl } from "./theta_control/info-button-control";
 import { stateButtonControl } from "./theta_control/state-button-control";
 import { listFilesButtonControl} from "./theta_control/list-files-button-control";
 import {takePictureButtonControl} from "./theta_control/take-picture-button-control";
 import { setVideoButtonControl } from "./theta_control/set-video-button-control";
 import { setImageButtonControl } from "./theta_control/set-image-button-control";
+import { lastFileUrlButtonControl } from "./theta_control/last-file-url-button-control";
+
 import { styles } from "./styles";
 
 export default function App() {
   // fake-theta
   // const urlEndpoint = "https://fake-theta.vercel.app/osc/";
+  const urlEndpoint = "https://fake-theta-alpha.vercel.app/osc/";
+
   // real theta physical device in access point mode
-  const urlEndpoint = "http://192.168.1.1/osc/";
+  // const urlEndpoint = "http://192.168.1.1/osc/";
 
   // end camera endpoint config
   const [responseWindow, onChangeResponseWindow] = useState(
@@ -101,11 +105,28 @@ export default function App() {
             }}
           ></Button>
         </View>         
+        <View style={styles.buttonContainer}>
+          <Button
+            style={styles.button}
+            title="url"
+            onPress={() => {
+              lastFileUrlButtonControl(urlEndpoint).then(function (data) {
+                console.log(data);
+                onChangeResponseWindow(data);
+              });
+            }}
+          ></Button>
+        </View>          
       </View>
       {/* end of second row of buttons */}
+
       <View style={styles.responseWindowContainer}>
         <Text>{responseWindow}</Text>
       </View>
+      <View>
+        <Image style={styles.thetaImage} source={{uri: "https://codetricity.github.io/fake-storage/files/100RICOH/thumb/R0010001.JPG"}}/>
+      </View>      
+
     </ScrollView>
   );
 }
