@@ -21,5 +21,5 @@ const data = await response.json();
 const fileUrl = data['results']['entries'][0]['fileUrl']
 
 
-return JSON.stringify(fileUrl);
+return String(fileUrl);
 }

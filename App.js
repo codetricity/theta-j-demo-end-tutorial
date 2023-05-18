@@ -23,6 +23,8 @@ export default function App() {
     "press button to test API"
   );
 
+  const [thetaImageUri, onChangeThetaImageUri] = useState("https://placehold.co/400x200/orange/white.jpg");
+
 
   return (
     <ScrollView style={styles.container}>
@@ -111,8 +113,10 @@ export default function App() {
             title="url"
             onPress={() => {
               lastFileUrlButtonControl(urlEndpoint).then(function (data) {
-                console.log(data);
+                onChangeThetaImageUri(data);
                 onChangeResponseWindow(data);
+                console.log(thetaImageUri);
+
               });
             }}
           ></Button>
@@ -124,7 +128,7 @@ export default function App() {
         <Text>{responseWindow}</Text>
       </View>
       <View>
-        <Image style={styles.thetaImage} source={{uri: "https://codetricity.github.io/fake-storage/files/100RICOH/thumb/R0010001.JPG"}}/>
+        <Image style={styles.thetaImage} source={{uri: thetaImageUri}}/>
       </View>      
 
     </ScrollView>
